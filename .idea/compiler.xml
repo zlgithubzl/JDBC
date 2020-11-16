@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="MyServlet" />
+        <module name="learnJdbc" />
       </profile>
     </annotationProcessing>
   </component>
