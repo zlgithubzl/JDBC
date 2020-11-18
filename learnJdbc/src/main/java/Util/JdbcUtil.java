@@ -5,9 +5,7 @@ import com.mysql.jdbc.Driver;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Properties;
 
 
@@ -42,42 +40,19 @@ public class JdbcUtil {
      * @throws SQLException
      * @throws ClassNotFoundException
      */
-    public  void getConnection() throws SQLException,ClassNotFoundException {
+    public static  Connection  getConnection() throws SQLException,ClassNotFoundException {
         Connection conn = DriverManager.getConnection(prop.getProperty("host"),prop.getProperty("user"),prop.getProperty("pass"));
 
-        this.conn = conn;
+        return conn;
     }
 
     /**
      * 释放资源
      */
-    public void free(){
+    public static void free(Connection conn, PreparedStatement ps, ResultSet rs){
 
     }
 
-    /**
-     * insert data
-     */
-    public boolean insert(){
-        return true;
-    }
-    /**
-     * select data
-     */
-    public void select(){
-
-    }
-    /**
-     * update data
-     */
-    public int update(){
-        return 1;
-    }/**
-     * delete data
-     */
-    public boolean delete(){
-        return true;
-    }
 
 
 }
