@@ -54,10 +54,11 @@ public class MyJdbcTemplate {
 
             //String sqlStr = "select id,name,pass from user where name='u1'";
 
-            String sqlStr = "select id,name,pass from user where name=?";
+            String sqlStr = "select id,name,pass from user where `name`=?";
             ps.setString(1,"u1");
-
-            rs = ps.executeQuery(sqlStr);
+            System.out.println(ps.toString());
+            //rs = ps.executeQuery(sqlStr);
+            rs = ps.executeQuery();     //这里面不能写sql，不能写sql，不能写sql***************************8
 
 
 
