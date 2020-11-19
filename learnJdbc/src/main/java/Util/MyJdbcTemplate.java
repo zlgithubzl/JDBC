@@ -1,9 +1,6 @@
 package Util;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,11 +51,28 @@ public class MyJdbcTemplate {
             conn = JdbcUtil.getConnection();
             // sql由调用者传入
             ps = conn.prepareStatement(sql);
+
+            //String sqlStr = "select id,name,pass from user where name='u1'";
+
+            String sqlStr = "select id,name,pass from user where name=?";
+            ps.setString(1,"u1");
+
+            rs = ps.executeQuery(sqlStr);
+
+
+
+
             // 遍历设置模板参数
-            for (int i = 0; i < args.length; i++){
-                ps.setObject(i + 1, args[i]);
-            }
-            rs = ps.executeQuery(sql);//select得到的结果集？待探究这里返回的是啥？？？？？？？？？，再研究mysql中的类型和java数据类型的对应关系？
+            //for (int i = 0; i < args.length; i++){
+                //ps.setObject(i+1, args[i]);
+
+                //ps.setString(1,"u1");
+            //}
+
+
+
+
+            //select得到的结果集？待探究这里返回的是啥？？？？？？？？？，再研究mysql中的类型和java数据类型的对应关系？
 
             //循环，将每行的数据插入到list中
             while(rs.next()){
