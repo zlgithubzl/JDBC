@@ -27,11 +27,12 @@
 
     </select>
 
-    <insert id="add" parameterType="map">
+    <insert id="add" parameterType="map" useGeneratedKeys="true" keyProperty="mid" keyColumn="create_time">
         <!-- 这里的参数对象里的值是可以直接使用的-->
         insert into user (name,pass) values(#{nameHAHA},#{passHAHA})
 
     </insert>
+
 
 </mapper>
 

@@ -55,7 +55,8 @@ public class UserDaoTestV2 {
         map.put("passHAHA","新增的密码2");
         int res = userMapper.add(map);
 
-        System.out.println(res);
+        System.out.println("新增的结果："+res);
+        System.out.println("新增的id："+map.get("mid"));
         sqlSession.commit();        //必须显示提交事务
     }
 }

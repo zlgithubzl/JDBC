@@ -3,10 +3,10 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-    <settings>
-        <!--开启日志-->
-        <setting name="logImpl" value="log4j"/>
-    </settings>
+<!--    <settings>-->
+<!--        &lt;!&ndash;开启日志&ndash;&gt;-->
+<!--        <setting name="logImpl" value="log4j"/>-->
+<!--    </settings>-->
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>

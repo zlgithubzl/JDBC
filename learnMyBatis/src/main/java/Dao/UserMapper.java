@@ -24,7 +24,7 @@ public interface UserMapper {
     * */
 
     /**
-     * map传承适用于：不需要全部字段的时候， 但是这种用户使用的还挺多
+     * map传参适用于：不需要全部字段的时候， 但是这种用户使用的还挺多
      */
     int add(Map<String,Object> paramMap);
 }
