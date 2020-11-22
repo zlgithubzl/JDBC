@@ -20,12 +20,13 @@ public class Test1 {
         //String sql = "select id,name,pass from user where name='u1'";
 
         String sql = "select id,name,pass from user where name= ? ";
-        String name="u1";
+        String name="十三";
         Object[] args = new Object[]{name};
 
         List list =  mt.query(sql, args, new RowMapper() {
             @Override
             public Object mapRow(ResultSet rs) throws SQLException {
+                System.out.println("rowmapper的方法");
                 User user = new User();
                 user.setId(rs.getInt("id"));
                 user.setName(rs.getString("name"));
@@ -36,9 +37,11 @@ public class Test1 {
 
         //List<ArrayList> userInfo = (ArrayList) list.get(0);     //报错：java.lang.ClassCastException: Service.User cannot be cast to java.util.ArrayList
         User userInfo = (User) list.get(0);
+        User userInfo2= (User) list.get(1);
 
 
         System.out.println(userInfo.getPass());
+        System.out.println(userInfo2.getPass());
 
     }
 }

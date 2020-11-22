@@ -42,6 +42,7 @@ public class MyJdbcTemplate {
      * @return
      */
     public List<Object> query(String sql, Object[] args, RowMapper rm){
+        System.out.println(11111);
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = null;
@@ -52,25 +53,17 @@ public class MyJdbcTemplate {
             // sql由调用者传入
             ps = conn.prepareStatement(sql);
 
-            //String sqlStr = "select id,name,pass from user where name='u1'";
 
-            String sqlStr = "select id,name,pass from user where `name`=?";
-            ps.setString(1,"u1");
-            System.out.println(ps.toString());
             //rs = ps.executeQuery(sqlStr);
-            rs = ps.executeQuery();     //这里面不能写sql，不能写sql，不能写sql***************************8
-
-
-
 
             // 遍历设置模板参数
-            //for (int i = 0; i < args.length; i++){
-                //ps.setObject(i+1, args[i]);
+            for (int i = 0; i < args.length; i++){
+                ps.setObject(i+1, args[i]);
+            }
 
-                //ps.setString(1,"u1");
-            //}
+            rs = ps.executeQuery();     //这里面不能写sql，不能写sql，不能写sql***************************8
 
-
+            System.out.println(rs.toString());
 
 
             //select得到的结果集？待探究这里返回的是啥？？？？？？？？？，再研究mysql中的类型和java数据类型的对应关系？
